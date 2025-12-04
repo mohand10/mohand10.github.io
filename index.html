@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>monty@portfolio - Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Terminal Window -->
+    <div class="terminal-window">
+        <!-- Terminal Header (like real Linux terminal) -->
+        <div class="terminal-header">
+            <div class="header-buttons">
+                <span class="btn close"></span>
+                <span class="btn minimize"></span>
+                <span class="btn maximize"></span>
+            </div>
+            <div class="header-title">monty@portfolio:~</div>
+            <div class="header-tabs">
+                <span class="tab active" onclick="switchTab('terminal')">■ Terminal</span>
+                <span class="tab" onclick="switchTab('gui')">◫ GUI</span>
+            </div>
+        </div>
+
+        <!-- Terminal Body -->
+        <div class="terminal-body" id="terminal-view">
+            <div id="terminal-output">
+                <pre class="ascii-art">
+                        __       
+   ____ ___  ____  ____  / /___  __
+  / __ `__ \/ __ \/ __ \/ __/ / / /
+ / / / / / / /_/ / / / / /_/ /_/ / 
+/_/ /_/ /_/\____/_/ /_/\__/\__, /  
+                          /____/   
+</pre>
+                <p class="welcome-text">Welcome to Mohan Degalwade's Portfolio Terminal v2.0</p>
+                <p class="info-text">Linux-style interactive portfolio system</p>
+                <p class="hint-text">Type <span class="highlight">'help'</span> to see available commands or <span class="highlight">'gui'</span> for visual mode</p>
+                <p>&nbsp;</p>
+            </div>
+            
+            <!-- Command Input Line -->
+            <div class="input-line">
+                <span class="prompt">monty@portfolio</span>:<span class="path">~</span>$ 
+                <input type="text" id="command-input" autofocus autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+
+        <!-- GUI Mode (Alternative View) -->
+        <div class="gui-body hidden" id="gui-view">
+            <nav class="gui-nav">
+                <button class="nav-btn active" onclick="showSection('gui-about')">📄 About</button>
+                <button class="nav-btn" onclick="showSection('gui-experience')">💼 Experience</button>
+                <button class="nav-btn" onclick="showSection('gui-projects')">🚀 Projects</button>
+                <button class="nav-btn" onclick="showSection('gui-contact')">📧 Contact</button>
+            </nav>
+
+            <div class="gui-content">
+                <!-- About Section -->
+                <div id="gui-about" class="gui-section active">
+                    <h2>$ whoami</h2>
+                    <div class="content-box">
+                        <p>Hello! I'm <strong>Mohan Degalwade</strong> (aka <span style="color: var(--accent-orange);">monty</span>)</p>
+                        <p>A <strong>High-Performance C++ Developer</strong> with 4.5+ years of experience in designing robust, multi-threaded, and multi-core software solutions for the telecom domain.</p>
+                        <p>Deep expertise in Object-Oriented Programming (OOP), Network Signaling protocols (SIP/RTP), and Design Patterns. Proven track record in optimizing system performance and delivering scalable enterprise-grade applications.</p>
+                        
+                        <div class="skills-category">
+                            <h4>💻 Languages</h4>
+                            <div class="skills-category-grid">
+                                <div class="skill-badge primary">C++</div>
+                                <div class="skill-badge primary">C</div>
+                                <div class="skill-badge">Python</div>
+                                <div class="skill-badge">PHP</div>
+                                <div class="skill-badge">JavaScript</div>
+                                <div class="skill-badge">Shell Script</div>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>🛠️ Technologies & Frameworks</h4>
+                            <div class="skills-category-grid">
+                                <div class="skill-badge primary">Multithreading</div>
+                                <div class="skill-badge primary">STL</div>
+                                <div class="skill-badge">OOP</div>
+                                <div class="skill-badge">Design Patterns</div>
+                                <div class="skill-badge">MySQL</div>
+                                <div class="skill-badge">REST API</div>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>🔧 Tools & Debugging</h4>
+                            <div class="skills-category-grid">
+                                <div class="skill-badge primary">Linux</div>
+                                <div class="skill-badge primary">GDB</div>
+                                <div class="skill-badge">Wireshark</div>
+                                <div class="skill-badge">Git/SVN</div>
+                                <div class="skill-badge">CI/CD</div>
+                            </div>
+                        </div>
+
+                        <div class="skills-category">
+                            <h4>🌐 Network & Protocols</h4>
+                            <div class="skills-category-grid">
+                                <div class="skill-badge primary">SIP/VoIP</div>
+                                <div class="skill-badge primary">Socket Prog</div>
+                                <div class="skill-badge">TCP/UDP</div>
+                                <div class="skill-badge">RTP</div>
+                                <div class="skill-badge">PCAP Analysis</div>
+                            </div>
+                        </div>
+
+                        <!-- Replace grid-style About Me with a simple paragraph -->
+                        <p><strong>About Me:</strong> I enjoy coding challenges, sharing tech talks, drawing, and playing outdoor sports like cricket and volleyball. I actively participate in community events and club activities.</p>
+                        <p><strong>Languages (Communication):</strong> English, Kannada, Hindi</p>
+                    </div>
+                </div>
+
+                <!-- Experience Section -->
+                <div id="gui-experience" class="gui-section">
+                    <h2>$ cat experience.log</h2>
+                    <div class="content-box">
+                        <!-- Professional Experience -->
+                        <div class="experience-item">
+                            <h3>Professional Experience</h3>
+                            <div class="experience-item">
+                                <h3>Software Developer - C++</h3>
+                                <p class="company">Mitel Communications Pvt. Ltd. | Bengaluru, India</p>
+                                <p class="date">Jan 2021 - Present</p>
+                                <ul>
+                                    <li>Resolved ~200 bugs across SIP/RTP/TCP/UDP signaling, call control, and UI; boosted stability and call setup reliability</li>
+                                    <li>Delivered 25+ features for enterprise IP phones, including high‑resolution display support and text‑based UX workflows</li>
+                                    <li>Owned Softkey modules (BLF, Transfer, Speed Dial) as SME; led configuration services and usability improvements</li>
+                                    <li>Designed Linux‑based C++ modules with scalable, multi‑threaded architectures; improved reliability and throughput</li>
+                                    <li>Diagnosed complex runtime defects using GDB and PCAP; reduced crashes and incident volume by ~30%</li>
+                                    <li>Optimized multi‑core performance and thread safety using STL/OOP & Design Patterns; cut latency and contention</li>
+                                    <li>Triaged protocol issues via Wireshark; prevented regressions across SIP/VoIP signaling stacks</li>
+                                    <li>Solved customer‑critical incidents end‑to‑end, coordinating hotfixes and RCA to restore service quickly</li>
+                                    <li>Partnered with QA/DevOps/Product in CI/CD; authored design notes and documentation for maintainability</li>
+                                </ul>
+                            </div>
+                            <div class="experience-item">
+                                <h3>Research Intern</h3>
+                                <p class="company">Indian Institute of Science (IISc) | Bengaluru, India</p>
+                                <p class="date">Jun 2019 - Jul 2019</p>
+                                <ul>
+                                    <li>Built C‑based simulations for electro‑optic modulators; validated models against lab results</li>
+                                    <li>Executed embedded experiments; documented findings and performance characteristics</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Education subsection (merged) -->
+                        <div class="experience-item">
+                            <h3>Education</h3>
+                            <ul>
+                                <li><strong>NIT Karnataka, Surathkal</strong> — B.Tech, Electronics & Communication, CGPA 7.2 (2016–2020)</li>
+                                <li><strong>Shri CBG PU Kardyal, Bidar</strong> — PUC Science, 98% (2014–2016)</li>
+                                <li><strong>Shri CBG High School, Bidar</strong> — SSLC, 97% (2013–2014)</li>
+                            </ul>
+                        </div>
+                        <!-- Achievements subsection (merged) -->
+                        <div class="experience-item">
+                            <h3>Achievements & Activities</h3>
+                            <ul>
+                                <li>Multiple Bravo awards for technical impact and reliability</li>
+                                <li>Innovation Day recognition; SharkTank PoC (Voice Command Softkey)</li>
+                                <li>3rd place at Mitel Hackathon</li>
+                                <li>Leadership: Executive Member – NITK Beach Events (Incident Fest)</li>
+                                <li>Coordinator – NITK Kannada Vedike; Committee Member – Phoenix Sports Club</li>
+                                <li>Delivered Tech Talks; active in coding/innovation contests; contributor on GFG/LeetCode</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div id="gui-projects" class="gui-section">
+                    <h2>$ ls -la ~/projects/</h2>
+                    <div class="content-box">
+                        <div class="project-card">
+                            <h3>🎤 Voice Command Softkey</h3>
+                            <p>Built speech-to-text + lightweight NLP for hands-free IP phone control. Showcased working PoC in SharkTank for UX & accessibility enhancement.</p>
+                            <div class="tech-tags">
+                                <span>C++</span>
+                                <span>NLP</span>
+                                <span>Speech Recognition</span>
+                                <span>VoIP</span>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h3>📱 IP Phones Management Portal</h3>
+                            <p>Designed secure CRUD APIs for vendor management and automation with comprehensive dashboard.</p>
+                            <div class="tech-tags">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>JavaScript</span>
+                                <span>REST API</span>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h3>🤖 Gesture Controlled Robotic Car</h3>
+                            <p>Arduino-based gesture recognition system for real-time robotic control using embedded C and sensors.</p>
+                            <div class="tech-tags">
+                                <span>Embedded C</span>
+                                <span>Arduino</span>
+                                <span>Sensors</span>
+                                <span>IoT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div id="gui-contact" class="gui-section">
+                    <h2>$ echo $CONTACT_INFO</h2>
+                    <div class="content-box">
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <span class="icon">📧</span>
+                                <div>
+                                    <strong>Email</strong>
+                                    <p><a href="mailto:mohandegalwade@gmail.com">mohandegalwade@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">💼</span>
+                                <div>
+                                    <strong>LinkedIn</strong>
+                                    <p><a href="https://linkedin.com/in/mohan-degalwade" target="_blank">linkedin.com/in/mohan-degalwade</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">💻</span>
+                                <div>
+                                    <strong>GeeksForGeeks</strong>
+                                    <p><a href="https://geeksforgeeks.org/user/montyy" target="_blank">geeksforgeeks.org/user/montyy</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">💻</span>
+                                <div>
+                                    <strong>LeetCode</strong>
+                                    <p><a href="https://leetcode.com/pirateking585326/" target="_blank">https://leetcode.com/pirateking585326/</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <span class="icon">📍</span>
+                                <div>
+                                    <strong>Location</strong>
+                                    <p>Bidar, Karnataka, India</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resume-download">
+                            <button class="download-btn" onclick="downloadResume()">
+                                <span style="font-size: 20px;">📄</span> Download Resume (PDF)
+                            </button>
+                            <p style="font-size: 12px; margin-top: 10px; color: var(--text-muted);">
+                                Type <span class="highlight">resume</span> in terminal mode to download
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
